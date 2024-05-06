@@ -1,0 +1,37 @@
+<h1>5 Card Poker Hand</h1>
+
+<%
+ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king", "ace"]
+suits = ["clubs", "diamonds", "hearts", "spades"]
+
+deck = []
+for rank in ranks
+  for suit in suits
+    card = "#{rank}_of_#{suit}"
+    deck.push(card)
+  end
+end
+
+shuffled_deck = deck.shuffle
+hand = shuffled_deck[0,5]
+
+for card in hand
+  puts card
+end
+%>
+
+<%for card in hand%> 
+  <%=card%>
+  <%end%>
+
+<p> 
+  <%for card in hand%> 
+    <img src = "/images/cards/<%= card %>.svg">
+  <%end%>
+</p>
+
+<p>
+  <a href = "/cards">Draw Again</a>
+</p>
+
+
